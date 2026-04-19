@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 
 const desktopShortcuts = [
@@ -104,6 +105,8 @@ const programs = [
       'Designed internal Python programs during a cybersecurity internship to compile activity logs and generate behavioral metrics for investigations.',
     stack: 'Python, log analysis, metrics',
     status: 'Internal work',
+    demoUrl: '',
+    repoUrl: '',
   },
   {
     tag: 'Security Analysis',
@@ -112,6 +115,8 @@ const programs = [
       'Built and refined log queries to surface anomalous behavior patterns across large Teams, Zoom, Citrix, and endpoint data sets.',
     stack: 'Splunk, SOAR, endpoint logs',
     status: 'Case details private',
+    demoUrl: '',
+    repoUrl: '',
   },
   {
     tag: 'Course Support',
@@ -120,6 +125,8 @@ const programs = [
       'Supported students through Java assignments, debugging, object-oriented programming concepts, and algorithm design practice.',
     stack: 'Java, OOP, algorithms',
     status: 'Teaching experience',
+    demoUrl: '',
+    repoUrl: '',
   },
 ]
 
@@ -131,6 +138,8 @@ const games = [
       'A fast-paced game prototype can live here with mechanics, level design ideas, and any custom systems I built.',
     stack: 'Unity or Godot',
     status: 'Gameplay footage coming soon',
+    demoUrl: '',
+    repoUrl: '',
   },
   {
     tag: 'Design Experiment',
@@ -139,6 +148,8 @@ const games = [
       'A place for a puzzle or strategy game that highlights logic, iteration, and player-focused design choices.',
     stack: 'C#, GDScript, UX iteration',
     status: 'Playable build coming soon',
+    demoUrl: '',
+    repoUrl: '',
   },
 ]
 
@@ -150,6 +161,8 @@ const mainProjects = [
       'Created and maintained a fraternity website that publishes fundraising, rush, and academic event information for members and visitors.',
     stack: 'React, HTML, CSS',
     status: 'Live organization site',
+    demoUrl: '',
+    repoUrl: '',
   },
   {
     tag: 'Cybersecurity Workflow',
@@ -158,6 +171,8 @@ const mainProjects = [
       'Authored incident reports documenting suspicious activity, escalation actions, and remediation steps to strengthen response workflows.',
     stack: 'SOAR, documentation, escalation',
     status: 'Professional experience',
+    demoUrl: '',
+    repoUrl: '',
   },
   {
     tag: 'Personal Build',
@@ -166,6 +181,8 @@ const mainProjects = [
       'A retro desktop-inspired portfolio built to organize resume-backed experience, projects, skills, and contact information.',
     stack: 'React, Vite, CSS',
     status: 'In progress',
+    demoUrl: '',
+    repoUrl: '',
   },
 ]
 
@@ -187,7 +204,7 @@ const contactItems = [
   },
 ]
 
-function ProjectSection({ eyebrow, title, blurb, items }) {
+function ProjectSection({ eyebrow, title, blurb, items, onOpenProject }) {
   return (
     <section className="section-block">
       <div className="section-titlebar">
@@ -216,10 +233,75 @@ function ProjectSection({ eyebrow, title, blurb, items }) {
               <span>{item.stack}</span>
               <span>{item.status}</span>
             </div>
+            <div className="project-actions">
+              <button type="button" onClick={() => onOpenProject(item)}>
+                Open window
+              </button>
+              {item.repoUrl ? (
+                <a href={item.repoUrl} target="_blank" rel="noreferrer">
+                  GitHub
+                </a>
+              ) : null}
+            </div>
           </article>
         ))}
       </div>
     </section>
+  )
+}
+
+function ProjectWindow({ project, onClose }) {
+  if (!project) {
+    return null
+  }
+
+  return (
+    <div className="project-modal-backdrop" role="presentation" onMouseDown={onClose}>
+      <section
+        className="project-demo-window"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="project-window-title"
+        onMouseDown={(event) => event.stopPropagation()}
+      >
+        <div className="project-window-titlebar">
+          <span id="project-window-title">{project.title}.exe</span>
+          <button type="button" onClick={onClose} aria-label="Close project window">
+            x
+          </button>
+        </div>
+
+        <div className="project-window-toolbar">
+          <span>{project.stack}</span>
+          <span>{project.status}</span>
+        </div>
+
+        {project.demoUrl ? (
+          <iframe
+            title={`${project.title} live demo`}
+            src={project.demoUrl}
+            className="project-demo-frame"
+            loading="lazy"
+          />
+        ) : (
+          <div className="project-window-empty">
+            <p className="card-tag">Demo URL needed</p>
+            <h3>Attach this React project with a live link.</h3>
+            <p>
+              Deploy the project with GitHub Pages, Vercel, or Netlify, then paste
+              that live URL into this project&apos;s <code>demoUrl</code> field in
+              <code> src/App.jsx</code>. A normal GitHub repo URL shows code, but
+              it does not run the app inside this window.
+            </p>
+            <p>
+              Local option: build the other React app, put its <code>dist</code>{' '}
+              files under <code>public/projects/project-name/</code>, and use{' '}
+              <code>/projects/project-name/index.html</code> as the demo URL.
+            </p>
+          </div>
+        )}
+      </section>
+    </div>
   )
 }
 
@@ -251,6 +333,8 @@ function InfoWindow({ id, title, items, compact = false }) {
 }
 
 function App() {
+  const [activeProject, setActiveProject] = useState(null)
+
   return (
     <main className="page-shell">
       <nav className="desktop-icons" aria-label="Portfolio shortcuts">
@@ -395,6 +479,7 @@ function App() {
             title="Code that solves practical problems"
             blurb="Applications, tools, utilities, and technical experiments that show how I think through problems and build toward working software."
             items={programs}
+            onOpenProject={setActiveProject}
           />
         </div>
 
@@ -404,6 +489,7 @@ function App() {
             title="Interactive builds and gameplay experiments"
             blurb="Prototypes, class projects, and game ideas that highlight creativity, systems thinking, and iteration."
             items={games}
+            onOpenProject={setActiveProject}
           />
         </div>
 
@@ -413,9 +499,15 @@ function App() {
             title="The projects I want people to remember"
             blurb="My strongest work belongs here, especially projects with clear impact, deeper architecture, or a story worth walking through."
             items={mainProjects}
+            onOpenProject={setActiveProject}
           />
         </div>
       </div>
+
+      <ProjectWindow
+        project={activeProject}
+        onClose={() => setActiveProject(null)}
+      />
     </main>
   )
 }
