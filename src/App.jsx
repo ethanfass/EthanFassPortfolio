@@ -1,33 +1,34 @@
 import './App.css'
 
 const highlights = [
-  'B.S. in Computer Science',
+  'Senior Computer Science Student',
   'Mathematics Minor',
   'Cybersecurity Concentration',
+  'Software + Security Focus',
 ]
 
 const programs = [
   {
     tag: 'Utility Build',
-    title: 'Systems Tool Placeholder',
+    title: 'Upcoming Systems Tool',
     description:
-      'A future home for one of your practical coding projects, such as a CLI tool, automation script, or data-focused application.',
+      'A future home for one of my practical coding projects, such as a CLI tool, automation script, or data-focused application.',
     stack: 'Python, C++, SQL',
     status: 'GitHub link coming soon',
   },
   {
     tag: 'Security Focus',
-    title: 'Cyber Lab Placeholder',
+    title: 'Upcoming Cyber Lab',
     description:
-      'Use this card for a security-oriented build like a packet analyzer, password auditing utility, or vulnerability practice project.',
+      'A place for a security-oriented build like a packet analyzer, password auditing utility, or vulnerability practice project.',
     stack: 'Linux, Networking, Scripting',
     status: 'Write-up coming soon',
   },
   {
     tag: 'Math + CS',
-    title: 'Algorithm Explorer Placeholder',
+    title: 'Upcoming Algorithm Explorer',
     description:
-      'A strong spot for a project that blends mathematical thinking with software engineering, including visualization or optimization work.',
+      'A strong spot for work that blends mathematical thinking with software engineering, including visualization or optimization.',
     stack: 'Java, Algorithms, Visualization',
     status: 'Demo coming soon',
   },
@@ -36,17 +37,17 @@ const programs = [
 const games = [
   {
     tag: 'Game Prototype',
-    title: 'Arcade Project Placeholder',
+    title: 'Upcoming Arcade Project',
     description:
-      'Showcase a fast-paced game prototype here with mechanics, level design ideas, and any custom systems you built.',
+      'A fast-paced game prototype can live here with mechanics, level design ideas, and any custom systems I built.',
     stack: 'Unity or Godot',
     status: 'Gameplay footage coming soon',
   },
   {
     tag: 'Design Experiment',
-    title: 'Puzzle Game Placeholder',
+    title: 'Upcoming Puzzle Game',
     description:
-      'Reserve this area for a puzzle or strategy game that highlights logic, iteration, and player-focused design choices.',
+      'A place for a puzzle or strategy game that highlights logic, iteration, and player-focused design choices.',
     stack: 'C#, GDScript, UX iteration',
     status: 'Playable build coming soon',
   },
@@ -55,26 +56,26 @@ const games = [
 const mainProjects = [
   {
     tag: 'Featured Project',
-    title: 'Capstone Placeholder',
+    title: 'Upcoming Capstone Project',
     description:
-      'This can become your lead academic or personal project with a fuller story around the problem, architecture, and impact.',
+      'This can become my lead academic or personal project, with a fuller story around the problem, architecture, and impact.',
     stack: 'Full-stack, APIs, Team collaboration',
     status: 'Case study coming soon',
   },
   {
     tag: 'Research / Engineering',
-    title: 'Data or Analysis Placeholder',
+    title: 'Upcoming Data or Analysis Project',
     description:
-      'Use this for a project involving analytics, machine logic, cybersecurity investigation, or advanced coursework.',
+      'A future project involving analytics, machine logic, cybersecurity investigation, or advanced coursework can live here.',
     stack: 'Data pipelines, reporting, testing',
     status: 'Repository coming soon',
   },
   {
     tag: 'Personal Build',
-    title: 'Passion Project Placeholder',
+    title: 'Upcoming Passion Project',
     description:
-      'A great place for something more personal that shows initiative, curiosity, and how you build outside the classroom.',
-    stack: 'Your preferred stack',
+      'A great place for something more personal that shows initiative, curiosity, and how I build outside the classroom.',
+    stack: 'Preferred stack',
     status: 'Details coming soon',
   },
 ]
@@ -110,15 +111,12 @@ function App() {
     <main className="page-shell">
       <section className="hero-panel">
         <div className="hero-copy">
-          <p className="eyebrow">Portfolio</p>
-          <h1>
-            Senior computer science student building thoughtful software with a
-            mathematical and security-minded foundation.
-          </h1>
+          <p className="eyebrow">Portfolio room / Ethan Fassnacht</p>
+          <h1>Ethan Fassnacht</h1>
           <p className="hero-text">
-            I&apos;m pursuing a B.S. in Computer Science, with a minor in
-            Mathematics and a concentration in Cybersecurity. This site is a
-            space to highlight my projects, technical growth, and the work
+            I&apos;m a senior Computer Science student pursuing a Mathematics
+            minor and a Cybersecurity concentration. This site is where I
+            collect the projects, technical growth, and practical software work
             I&apos;m proud to keep building.
           </p>
 
@@ -133,7 +131,26 @@ function App() {
         </div>
 
         <aside className="hero-aside">
-          <p className="panel-title">At a glance</p>
+          <div className="chat-window" aria-hidden="true">
+            <div className="chat-window-bar">
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className="sketch-pad">
+              <div className="doodle-name">EF</div>
+              <span className="doodle-line doodle-line-one" />
+              <span className="doodle-line doodle-line-two" />
+              <span className="doodle-dot doodle-dot-one" />
+              <span className="doodle-dot doodle-dot-two" />
+            </div>
+            <div className="mini-thread">
+              <p>currently building</p>
+              <p>software, games, and security-minded projects</p>
+            </div>
+          </div>
+
+          <p className="panel-title">Room Notes</p>
           <div className="highlight-list">
             {highlights.map((item) => (
               <span className="highlight-pill" key={item}>
@@ -143,10 +160,10 @@ function App() {
           </div>
 
           <div className="note-card">
-            <p className="note-title">GitHub placeholders are live for now</p>
+            <p className="note-title">Project links coming online</p>
             <p>
               Each project area below is ready for real repository links,
-              screenshots, and write-ups once you publish them.
+              screenshots, and write-ups once they are ready to publish.
             </p>
           </div>
         </aside>
@@ -163,7 +180,7 @@ function App() {
         <div>
           <p className="band-label">Current Stage</p>
           <p>
-            Senior year portfolio in progress, designed to grow alongside your
+            Senior year portfolio in progress, designed to grow alongside my
             GitHub and future internship or full-time applications.
           </p>
         </div>
@@ -174,7 +191,7 @@ function App() {
           <ProjectSection
             eyebrow="Programs"
             title="Code that solves practical problems"
-            blurb="Use this section for applications, tools, utilities, and technical experiments that show how you think and build."
+            blurb="Applications, tools, utilities, and technical experiments that show how I think through problems and build toward working software."
             items={programs}
           />
         </div>
@@ -183,7 +200,7 @@ function App() {
           <ProjectSection
             eyebrow="Games"
             title="Interactive builds and gameplay experiments"
-            blurb="This section is ideal for prototypes, class projects, and game ideas that highlight creativity, systems thinking, and iteration."
+            blurb="Prototypes, class projects, and game ideas that highlight creativity, systems thinking, and iteration."
             items={games}
           />
         </div>
@@ -191,8 +208,8 @@ function App() {
         <div id="main-projects">
           <ProjectSection
             eyebrow="Main Projects"
-            title="The projects you want people to remember"
-            blurb="Feature your strongest work here, especially projects with clear impact, deeper architecture, or a story worth walking through."
+            title="The projects I want people to remember"
+            blurb="My strongest work belongs here, especially projects with clear impact, deeper architecture, or a story worth walking through."
             items={mainProjects}
           />
         </div>
