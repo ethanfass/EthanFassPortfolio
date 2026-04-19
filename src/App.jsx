@@ -14,23 +14,30 @@ const experienceItems = [
   {
     label: 'Internship',
     title: 'Cybersecurity Risk Management Intern',
-    meta: 'AmeriHealth Caritas | Jun 2025 - Aug 2025 | Hybrid',
+    meta: 'AmeriHealth Caritas | Newtown Square, PA | Jun 2025 - Aug 2025',
     detail:
-      'Investigated account lockout bypass cases, escalated incidents when needed, built scripts to analyze logs and detect suspicious behavior, and gained hands-on experience with incident response tools.',
+      'Analyzed Teams, Zoom, Citrix session, endpoint, mouse, and keyboard activity logs to investigate potential misuse of an account lockout bypass system. Built custom log queries, authored SOAR incident reports, and designed Python programs that compiled logs and generated behavioral metrics for insider-threat detection.',
   },
   {
     label: 'Teaching',
     title: 'Teaching Assistant',
-    meta: 'University of Delaware | Feb 2025 - May 2025 | CISC181',
+    meta: 'University of Delaware | Newark, DE | Feb 2025 - May 2025',
     detail:
-      'Hosted lab sessions for 10 students, guided practical coding exercises, graded assignments and projects, answered online questions, and held office hours.',
+      'Led weekly Java lab sessions for 10+ students, guided debugging and problem-solving work, held office hours for object-oriented programming and algorithm design, and graded labs, homework, and projects with detailed feedback.',
   },
   {
     label: 'Customer Service',
-    title: 'Retail and Customer Support',
-    meta: 'Wawa, Wegmans, Lowe\'s, Fine Wine & Good Spirits | 2020 - 2024',
+    title: 'Sales Associate',
+    meta: 'Fine Wine & Good Spirits | Warrington, PA | Jun 2024 - Aug 2024',
     detail:
-      'Built customer-facing experience through register work, stocking, product support, organization, and service-focused roles.',
+      'Assisted customers with product selection, maintained organized and well-stocked displays, supported seasonal sales, and collaborated with the team to streamline department operations.',
+  },
+  {
+    label: 'Retail Operations',
+    title: 'Inside Lawn & Garden Associate',
+    meta: 'Lowe\'s Home Improvement | Warrington, PA | Jun 2023 - Feb 2024',
+    detail:
+      'Guided customers through product selections, managed transactions, restocked merchandise, and kept the sales floor organized during high-volume hours.',
   },
 ]
 
@@ -38,26 +45,31 @@ const skillItems = [
   {
     label: 'Languages',
     title: 'Programming',
-    detail: 'Python, Java, JavaScript, TypeScript',
+    detail: 'Python, Java, C, C++, SQL, HTML, CSS, TypeScript, JavaScript, React',
   },
   {
-    label: 'Web',
-    title: 'Frontend',
-    detail: 'React.js, HTML, CSS',
+    label: 'Systems',
+    title: 'Operating Systems',
+    detail: 'Windows, Unix, Ubuntu',
   },
   {
-    label: 'CS',
+    label: 'Security Tools',
+    title: 'Software',
+    detail: 'Splunk, Burp Suite, SOAR, Metasploit',
+  },
+  {
+    label: 'CS Focus',
     title: 'Core Topics',
-    detail: 'Data structures, software engineering, cybersecurity, network security, cryptography',
+    detail: 'Cybersecurity, object-oriented programming, algorithm design, data analysis, and software engineering',
   },
 ]
 
 const certificateItems = [
   {
     label: 'Certification',
-    title: 'CompTIA Security+ ce',
-    meta: 'Issued Mar 2025 | Expires Mar 2028',
-    detail: 'Security, cryptography, network security, and cybersecurity foundations.',
+    title: 'CompTIA Security+ (SYO-601)',
+    meta: 'Earned Mar 2025',
+    detail: 'Cybersecurity certification listed on the resume; currently studying for ISC2 CISSP with an early June 2026 target.',
   },
 ]
 
@@ -65,47 +77,49 @@ const educationItems = [
   {
     label: 'University',
     title: 'University of Delaware',
-    meta: 'B.E. Computer Science | Aug 2022 - May 2026',
+    meta: 'Bachelor of Computer Science | Expected May 2026',
     detail:
-      'Computer Science major with a Mathematics minor and a Cybersecurity concentration.',
+      'Computer Science student with a Mathematics minor, Cybersecurity concentration, 3.48 GPA, and Dean\'s List honors beginning Spring 2024.',
   },
   {
     label: 'Activities',
     title: 'Clubs and Campus Involvement',
     detail:
-      'Competitive Coding Club, Association for Computing Machinery, intramural soccer and basketball.',
+      'Member of Competitive Coding Club since September 2023 and Association for Computing Machinery since September 2022.',
   },
   {
     label: 'Fraternity',
-    title: 'Sigma Phi Delta Engineering Fraternity',
-    detail: 'Intramural Chair and Web Designer.',
+    title: 'Sigma Phi Delta - National Engineering Fraternity',
+    meta: 'Intramural Chair, New Member Guide, Web Designer | Sep 2023 - Present',
+    detail:
+      'Organized intramural sports for 60+ members and created and maintained a React website for fundraising, rush, and academic events.',
   },
 ]
 
 const programs = [
   {
-    tag: 'Utility Build',
-    title: 'Upcoming Systems Tool',
+    tag: 'Python Automation',
+    title: 'Log Compilation Tools',
     description:
-      'A future home for one of my practical coding projects, such as a CLI tool, automation script, or data-focused application.',
-    stack: 'Python, C++, SQL',
-    status: 'GitHub link coming soon',
+      'Designed internal Python programs during a cybersecurity internship to compile activity logs and generate behavioral metrics for investigations.',
+    stack: 'Python, log analysis, metrics',
+    status: 'Internal work',
   },
   {
-    tag: 'Security Focus',
-    title: 'Upcoming Cyber Lab',
+    tag: 'Security Analysis',
+    title: 'Custom Investigation Queries',
     description:
-      'A place for a security-oriented build like a packet analyzer, password auditing utility, or vulnerability practice project.',
-    stack: 'Linux, Networking, Scripting',
-    status: 'Write-up coming soon',
+      'Built and refined log queries to surface anomalous behavior patterns across large Teams, Zoom, Citrix, and endpoint data sets.',
+    stack: 'Splunk, SOAR, endpoint logs',
+    status: 'Case details private',
   },
   {
-    tag: 'Math + CS',
-    title: 'Upcoming Algorithm Explorer',
+    tag: 'Course Support',
+    title: 'Java Lab Coaching',
     description:
-      'A strong spot for work that blends mathematical thinking with software engineering, including visualization or optimization.',
-    stack: 'Java, Algorithms, Visualization',
-    status: 'Demo coming soon',
+      'Supported students through Java assignments, debugging, object-oriented programming concepts, and algorithm design practice.',
+    stack: 'Java, OOP, algorithms',
+    status: 'Teaching experience',
   },
 ]
 
@@ -131,27 +145,45 @@ const games = [
 const mainProjects = [
   {
     tag: 'Featured Project',
-    title: 'Upcoming Capstone Project',
+    title: 'Sigma Phi Delta Website',
     description:
-      'This can become my lead academic or personal project, with a fuller story around the problem, architecture, and impact.',
-    stack: 'Full-stack, APIs, Team collaboration',
-    status: 'Case study coming soon',
+      'Created and maintained a fraternity website that publishes fundraising, rush, and academic event information for members and visitors.',
+    stack: 'React, HTML, CSS',
+    status: 'Live organization site',
   },
   {
-    tag: 'Research / Engineering',
-    title: 'Upcoming Data or Analysis Project',
+    tag: 'Cybersecurity Workflow',
+    title: 'SOAR Incident Reports',
     description:
-      'A future project involving analytics, machine logic, cybersecurity investigation, or advanced coursework can live here.',
-    stack: 'Data pipelines, reporting, testing',
-    status: 'Repository coming soon',
+      'Authored incident reports documenting suspicious activity, escalation actions, and remediation steps to strengthen response workflows.',
+    stack: 'SOAR, documentation, escalation',
+    status: 'Professional experience',
   },
   {
     tag: 'Personal Build',
-    title: 'Upcoming Passion Project',
+    title: 'Portfolio Site',
     description:
-      'A great place for something more personal that shows initiative, curiosity, and how I build outside the classroom.',
-    stack: 'Preferred stack',
-    status: 'Details coming soon',
+      'A retro desktop-inspired portfolio built to organize resume-backed experience, projects, skills, and contact information.',
+    stack: 'React, Vite, CSS',
+    status: 'In progress',
+  },
+]
+
+const contactItems = [
+  {
+    label: 'Email',
+    title: 'ethfass74@gmail.com',
+    detail: 'Best resume contact for internship, full-time, and project opportunities.',
+  },
+  {
+    label: 'LinkedIn',
+    title: 'linkedin.com/in/ethanfassnacht',
+    detail: 'Professional profile listed on the resume.',
+  },
+  {
+    label: 'Phone',
+    title: '(215) 347-9604',
+    detail: 'Direct phone contact from the resume.',
   },
 ]
 
@@ -275,6 +307,10 @@ function App() {
                     <dd>Senior Computer Science Student</dd>
                   </div>
                   <div>
+                    <dt>Degree</dt>
+                    <dd>Bachelor of Computer Science</dd>
+                  </div>
+                  <div>
                     <dt>Minor</dt>
                     <dd>Mathematics</dd>
                   </div>
@@ -288,7 +324,11 @@ function App() {
                   </div>
                   <div>
                     <dt>Certification</dt>
-                    <dd>CompTIA Security+ ce</dd>
+                    <dd>CompTIA Security+ (SYO-601)</dd>
+                  </div>
+                  <div>
+                    <dt>Email</dt>
+                    <dd>ethfass74@gmail.com</dd>
                   </div>
                 </dl>
               </div>
@@ -296,8 +336,9 @@ function App() {
           </div>
 
           <p className="hero-text">
-            This site is where I collect the projects, technical growth, and
-            practical software work I&apos;m proud to keep building.
+            I&apos;m a University of Delaware Computer Science senior building a
+            portfolio around security work, teaching experience, and practical
+            software projects.
           </p>
 
           <div className="hero-actions">
@@ -316,15 +357,16 @@ function App() {
         <div>
           <p className="band-label">Focus Areas</p>
           <p>
-            Software development, problem solving, cybersecurity thinking, and
-            projects that show both technical skill and initiative.
+            Log investigation, Python automation, incident reporting, Java and
+            OOP support, React websites, SQL, and security tools like Splunk,
+            Burp Suite, SOAR, and Metasploit.
           </p>
         </div>
         <div>
           <p className="band-label">Current Stage</p>
           <p>
-            Senior year portfolio in progress, designed to grow alongside my
-            GitHub and future internship or full-time applications.
+            Expected May 2026 graduate with a 3.48 GPA, Security+ certification,
+            and CISSP study in progress for an early June 2026 target.
           </p>
         </div>
       </section>
@@ -343,6 +385,8 @@ function App() {
         title="education-extracurriculars.grp"
         items={educationItems}
       />
+
+      <InfoWindow compact id="contact" title="contact.ini" items={contactItems} />
 
       <div className="content-stack">
         <div id="programs">
