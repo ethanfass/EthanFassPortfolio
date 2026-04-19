@@ -1,10 +1,91 @@
 import './App.css'
 
-const highlights = [
-  'Senior Computer Science Student',
-  'Mathematics Minor',
-  'Cybersecurity Concentration',
-  'Software + Security Focus',
+const desktopShortcuts = [
+  { href: '#main-projects', icon: 'folder', label: 'Projects' },
+  { href: '#programs', icon: 'chip', label: 'Programs' },
+  { href: '#games', icon: 'window', label: 'Games' },
+  { href: '#education', icon: 'document', label: 'Education' },
+  { href: '#skills', icon: 'tools', label: 'Skills' },
+  { href: '#experience', icon: 'briefcase', label: 'Experience' },
+  { href: '#certifications', icon: 'certificate', label: 'Security+' },
+  {
+    href: 'https://www.linkedin.com/in/ethanfassnacht/',
+    icon: 'network',
+    label: 'LinkedIn',
+    external: true,
+  },
+]
+
+const experienceItems = [
+  {
+    label: 'Internship',
+    title: 'Cybersecurity Risk Management Intern',
+    meta: 'AmeriHealth Caritas | Jun 2025 - Aug 2025 | Hybrid',
+    detail:
+      'Investigated account lockout bypass cases, escalated incidents when needed, built scripts to analyze logs and detect suspicious behavior, and gained hands-on experience with incident response tools.',
+  },
+  {
+    label: 'Teaching',
+    title: 'Teaching Assistant',
+    meta: 'University of Delaware | Feb 2025 - May 2025 | CISC181',
+    detail:
+      'Hosted lab sessions for 10 students, guided practical coding exercises, graded assignments and projects, answered online questions, and held office hours.',
+  },
+  {
+    label: 'Customer Service',
+    title: 'Retail and Customer Support',
+    meta: 'Wawa, Wegmans, Lowe\'s, Fine Wine & Good Spirits | 2020 - 2024',
+    detail:
+      'Built customer-facing experience through register work, stocking, product support, organization, and service-focused roles.',
+  },
+]
+
+const skillItems = [
+  {
+    label: 'Languages',
+    title: 'Programming',
+    detail: 'Python, Java, JavaScript, TypeScript',
+  },
+  {
+    label: 'Web',
+    title: 'Frontend',
+    detail: 'React.js, HTML, CSS',
+  },
+  {
+    label: 'CS',
+    title: 'Core Topics',
+    detail: 'Data structures, software engineering, cybersecurity, network security, cryptography',
+  },
+]
+
+const certificateItems = [
+  {
+    label: 'Certification',
+    title: 'CompTIA Security+ ce',
+    meta: 'Issued Mar 2025 | Expires Mar 2028',
+    detail: 'Security, cryptography, network security, and cybersecurity foundations.',
+  },
+]
+
+const educationItems = [
+  {
+    label: 'University',
+    title: 'University of Delaware',
+    meta: 'B.E. Computer Science | Aug 2022 - May 2026',
+    detail:
+      'Computer Science major with a Mathematics minor and a Cybersecurity concentration.',
+  },
+  {
+    label: 'Activities',
+    title: 'Clubs and Campus Involvement',
+    detail:
+      'Competitive Coding Club, Association for Computing Machinery, intramural soccer and basketball.',
+  },
+  {
+    label: 'Fraternity',
+    title: 'Sigma Phi Delta Engineering Fraternity',
+    detail: 'Intramural Chair and Web Designer.',
+  },
 ]
 
 const programs = [
@@ -83,6 +164,15 @@ const mainProjects = [
 function ProjectSection({ eyebrow, title, blurb, items }) {
   return (
     <section className="section-block">
+      <div className="section-titlebar">
+        <span>{eyebrow}.grp</span>
+        <div className="window-controls" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+        </div>
+      </div>
+
       <div className="section-heading">
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>
@@ -92,6 +182,7 @@ function ProjectSection({ eyebrow, title, blurb, items }) {
       <div className="card-grid">
         {items.map((item) => (
           <article className="project-card" key={item.title}>
+            <span className="file-icon" aria-hidden="true" />
             <p className="card-tag">{item.tag}</p>
             <h3>{item.title}</h3>
             <p>{item.description}</p>
@@ -106,18 +197,105 @@ function ProjectSection({ eyebrow, title, blurb, items }) {
   )
 }
 
+function InfoWindow({ id, title, items, compact = false }) {
+  return (
+    <section className={`info-window${compact ? ' info-window-compact' : ''}`} id={id}>
+      <div className="section-titlebar">
+        <span>{title}</span>
+        <div className="window-controls" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+        </div>
+      </div>
+
+      <div className="resume-card-grid">
+        {items.map((item) => (
+          <article className="resume-card" key={`${item.label}-${item.title}`}>
+            <span className="resume-icon" aria-hidden="true" />
+            <p className="card-tag">{item.label}</p>
+            <h3>{item.title}</h3>
+            {item.meta ? <p className="resume-meta">{item.meta}</p> : null}
+            <p>{item.detail}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  )
+}
+
 function App() {
   return (
     <main className="page-shell">
+      <nav className="desktop-icons" aria-label="Portfolio shortcuts">
+        {desktopShortcuts.map((item) => (
+          <a
+            href={item.href}
+            key={item.label}
+            rel={item.external ? 'noreferrer' : undefined}
+            target={item.external ? '_blank' : undefined}
+          >
+            <span
+              className={`desktop-icon desktop-icon-${item.icon}`}
+              aria-hidden="true"
+            />
+            <span>{item.label}</span>
+          </a>
+        ))}
+      </nav>
+
       <section className="hero-panel">
+        <div className="window-titlebar">
+          <span className="titlebar-icon" aria-hidden="true" />
+          <span>ETHAN.EXE</span>
+          <div className="window-controls" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </div>
+        </div>
+
+        <div className="system-menu" aria-hidden="true">
+          <span>FILE</span>
+          <span>VIEW</span>
+          <span>WORK</span>
+          <span>CONTACT</span>
+        </div>
+
         <div className="hero-copy">
-          <p className="eyebrow">Portfolio room / Ethan Fassnacht</p>
-          <h1>Ethan Fassnacht</h1>
+          <div className="profile-dialog">
+            <div className="dialog-titlebar">
+              <span>ABOUTETHAN.DAT</span>
+            </div>
+
+            <div className="profile-body">
+              <div className="portrait-icon" aria-hidden="true">
+                EF
+              </div>
+              <div className="profile-fields">
+                <p className="eyebrow">Portfolio room / Ethan Fassnacht</p>
+                <h1>Ethan Fassnacht</h1>
+                <dl>
+                  <div>
+                    <dt>Status</dt>
+                    <dd>Senior Computer Science Student</dd>
+                  </div>
+                  <div>
+                    <dt>Minor</dt>
+                    <dd>Mathematics</dd>
+                  </div>
+                  <div>
+                    <dt>Track</dt>
+                    <dd>Cybersecurity</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+
           <p className="hero-text">
-            I&apos;m a senior Computer Science student pursuing a Mathematics
-            minor and a Cybersecurity concentration. This site is where I
-            collect the projects, technical growth, and practical software work
-            I&apos;m proud to keep building.
+            This site is where I collect the projects, technical growth, and
+            practical software work I&apos;m proud to keep building.
           </p>
 
           <div className="hero-actions">
@@ -131,32 +309,41 @@ function App() {
         </div>
 
         <aside className="hero-aside">
-          <div className="chat-window" aria-hidden="true">
-            <div className="chat-window-bar">
-              <span />
-              <span />
-              <span />
+          <div className="system-info-window">
+            <div className="dialog-titlebar">
+              <span>systeminfo.pif</span>
             </div>
-            <div className="sketch-pad">
-              <div className="doodle-name">EF</div>
-              <span className="doodle-line doodle-line-one" />
-              <span className="doodle-line doodle-line-two" />
-              <span className="doodle-dot doodle-dot-one" />
-              <span className="doodle-dot doodle-dot-two" />
-            </div>
-            <div className="mini-thread">
-              <p>currently building</p>
-              <p>software, games, and security-minded projects</p>
+            <div className="system-display">
+              <div className="display-preview" aria-hidden="true">
+                <div className="display-initials">EF</div>
+                <span className="display-line display-line-one" />
+                <span className="display-line display-line-two" />
+                <span className="display-pixel display-pixel-one" />
+                <span className="display-pixel display-pixel-two" />
+              </div>
+              <dl>
+                <div>
+                  <dt>Location</dt>
+                  <dd>Newark, Delaware</dd>
+                </div>
+                <div>
+                  <dt>Cert</dt>
+                  <dd>CompTIA Security+ ce</dd>
+                </div>
+                <div>
+                  <dt>LinkedIn</dt>
+                  <dd>/in/ethanfassnacht</dd>
+                </div>
+              </dl>
             </div>
           </div>
 
-          <p className="panel-title">Room Notes</p>
+          <p className="panel-title">Quick Specs</p>
           <div className="highlight-list">
-            {highlights.map((item) => (
-              <span className="highlight-pill" key={item}>
-                {item}
-              </span>
-            ))}
+            <span className="highlight-pill">Python</span>
+            <span className="highlight-pill">Java</span>
+            <span className="highlight-pill">React.js</span>
+            <span className="highlight-pill">TypeScript</span>
           </div>
 
           <div className="note-card">
@@ -167,6 +354,7 @@ function App() {
             </p>
           </div>
         </aside>
+
       </section>
 
       <section className="intro-band">
@@ -185,6 +373,21 @@ function App() {
           </p>
         </div>
       </section>
+
+      <InfoWindow id="experience" title="experience.exe" items={experienceItems} />
+
+      <InfoWindow
+        compact
+        id="skills"
+        title="skills-certificates.cpl"
+        items={[...skillItems, ...certificateItems]}
+      />
+
+      <InfoWindow
+        id="education"
+        title="education-extracurriculars.grp"
+        items={educationItems}
+      />
 
       <div className="content-stack">
         <div id="programs">
