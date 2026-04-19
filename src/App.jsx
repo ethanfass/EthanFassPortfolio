@@ -74,6 +74,15 @@ const certificateItems = [
   },
 ]
 
+const classItems = [
+  {
+    label: 'Coursework',
+    title: 'Classes',
+    detail:
+      'Intro to Network Security, Secure Software Design, Cloud Computing and Security, Introduction to Cybersecurity, Digital Forensics, Computer Networks I, and Operating Systems.',
+  },
+]
+
 const educationItems = [
   {
     label: 'University',
@@ -461,7 +470,7 @@ function App() {
         compact
         id="skills"
         title="skills-certificates.cpl"
-        items={[...skillItems, ...certificateItems]}
+        items={[...skillItems, ...certificateItems, ...classItems]}
       />
 
       <InfoWindow
