@@ -1,19 +1,13 @@
 import './App.css'
 
 const desktopShortcuts = [
-  { href: '#main-projects', icon: 'folder', label: 'Projects' },
-  { href: '#programs', icon: 'chip', label: 'Programs' },
-  { href: '#games', icon: 'window', label: 'Games' },
+  { href: '#about', icon: 'about', label: 'About' },
   { href: '#education', icon: 'document', label: 'Education' },
-  { href: '#skills', icon: 'tools', label: 'Skills' },
   { href: '#experience', icon: 'briefcase', label: 'Experience' },
-  { href: '#certifications', icon: 'certificate', label: 'Security+' },
-  {
-    href: 'https://www.linkedin.com/in/ethanfassnacht/',
-    icon: 'network',
-    label: 'LinkedIn',
-    external: true,
-  },
+  { href: '#skills', icon: 'tools', label: 'Skills' },
+  { href: '#main-projects', icon: 'folder', label: 'Projects' },
+  { href: '#games', icon: 'window', label: 'Games' },
+  { href: '#programs', icon: 'chip', label: 'Programs' },
 ]
 
 const experienceItems = [
@@ -244,7 +238,7 @@ function App() {
         ))}
       </nav>
 
-      <section className="hero-panel">
+      <section className="hero-panel" id="about">
         <div className="window-titlebar">
           <span className="titlebar-icon" aria-hidden="true" />
           <span>ETHAN.EXE</span>
@@ -285,8 +279,16 @@ function App() {
                     <dd>Mathematics</dd>
                   </div>
                   <div>
-                    <dt>Track</dt>
+                    <dt>Concentration</dt>
                     <dd>Cybersecurity</dd>
+                  </div>
+                  <div>
+                    <dt>Location</dt>
+                    <dd>Newark, Delaware</dd>
+                  </div>
+                  <div>
+                    <dt>Certification</dt>
+                    <dd>CompTIA Security+ ce</dd>
                   </div>
                 </dl>
               </div>
@@ -302,58 +304,11 @@ function App() {
             <a href="#main-projects" className="primary-link">
               View featured work
             </a>
-            <a href="#programs" className="secondary-link">
-              Explore sections
+            <a href="#experience" className="secondary-link">
+              View experience
             </a>
           </div>
         </div>
-
-        <aside className="hero-aside">
-          <div className="system-info-window">
-            <div className="dialog-titlebar">
-              <span>systeminfo.pif</span>
-            </div>
-            <div className="system-display">
-              <div className="display-preview" aria-hidden="true">
-                <div className="display-initials">EF</div>
-                <span className="display-line display-line-one" />
-                <span className="display-line display-line-two" />
-                <span className="display-pixel display-pixel-one" />
-                <span className="display-pixel display-pixel-two" />
-              </div>
-              <dl>
-                <div>
-                  <dt>Location</dt>
-                  <dd>Newark, Delaware</dd>
-                </div>
-                <div>
-                  <dt>Cert</dt>
-                  <dd>CompTIA Security+ ce</dd>
-                </div>
-                <div>
-                  <dt>LinkedIn</dt>
-                  <dd>/in/ethanfassnacht</dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-
-          <p className="panel-title">Quick Specs</p>
-          <div className="highlight-list">
-            <span className="highlight-pill">Python</span>
-            <span className="highlight-pill">Java</span>
-            <span className="highlight-pill">React.js</span>
-            <span className="highlight-pill">TypeScript</span>
-          </div>
-
-          <div className="note-card">
-            <p className="note-title">Project links coming online</p>
-            <p>
-              Each project area below is ready for real repository links,
-              screenshots, and write-ups once they are ready to publish.
-            </p>
-          </div>
-        </aside>
 
       </section>
 

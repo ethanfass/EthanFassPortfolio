@@ -41,6 +41,13 @@
     3px 3px 0 rgba(0, 0, 0, 0.45);
 }
 
+.desktop-icon-about {
+  background:
+    radial-gradient(circle at 50% 30%, #000000 0 6px, transparent 6px),
+    linear-gradient(0deg, transparent 0 22px, #000000 22px 28px, transparent 28px),
+    var(--accent-yellow);
+}
+
 .desktop-icon-folder {
   height: 30px;
   margin-top: 6px;
@@ -53,7 +60,7 @@
   top: -10px;
   left: -3px;
   width: 24px;
-  height: 10px;
+  height: 11px;
   border: 3px solid #000000;
   border-bottom: 0;
   background: var(--accent-yellow);
@@ -72,16 +79,40 @@
 }
 
 .desktop-icon-document {
+  overflow: hidden;
   background:
-    linear-gradient(135deg, transparent 0 9px, #000000 9px 12px, var(--window) 12px),
+    linear-gradient(0deg, transparent 0 8px, #000000 8px 12px, transparent 12px 16px, #000000 16px 20px, transparent 20px 24px, #000000 24px 28px, transparent 28px),
     #ffffff;
 }
 
+.desktop-icon-document::before,
+.desktop-icon-document::after {
+  display: none;
+}
+
 .desktop-icon-tools {
-  background:
-    linear-gradient(90deg, transparent 0 14px, #000000 14px 20px, transparent 20px),
-    linear-gradient(0deg, transparent 0 14px, #000000 14px 20px, transparent 20px),
-    var(--accent-yellow);
+  overflow: hidden;
+  background: var(--accent-green);
+}
+
+.desktop-icon-tools::before {
+  content: '';
+  position: absolute;
+  left: 3.1px;
+  width: 31.45px;
+  top: 13px;
+  height: 6px;
+  background: #000000;
+}
+
+.desktop-icon-tools::after {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 3px;
+  height: 25.7px;
+  width: 6px;
+  background: #000000;
 }
 
 .desktop-icon-network {
@@ -97,19 +128,26 @@
 .desktop-icon-briefcase {
   height: 30px;
   margin-top: 6px;
-  background: var(--window);
+  overflow: visible;
+  background:
+    linear-gradient(var(--accent-blue) 0 100%),
+    var(--accent-blue);
 }
 
 .desktop-icon-briefcase::before {
   content: '';
   position: absolute;
   top: -10px;
-  left: 11px;
-  width: 16px;
-  height: 10px;
+  left: -3px;
+  width: 24px;
+  height: 11px;
   border: 3px solid #000000;
   border-bottom: 0;
-  background: var(--window);
+  background: var(--accent-blue);
+}
+
+.desktop-icon-briefcase::after {
+  display: none;
 }
 
 .desktop-icon-certificate {
@@ -131,13 +169,10 @@
 }
 
 .hero-panel {
-  display: grid;
-  grid-template-columns: minmax(0, 1.13fr) minmax(310px, 0.87fr);
-  gap: 18px;
   width: min(1180px, calc(100% - 116px));
-  min-height: 650px;
+  min-height: 520px;
   margin: 0 auto;
-  padding: 82px 18px 46px;
+  padding: 58px 22px 34px;
   overflow: hidden;
 }
 
@@ -212,16 +247,7 @@
 }
 
 .system-menu {
-  position: absolute;
-  top: 40px;
-  left: 6px;
-  right: 6px;
-  z-index: 5;
-  display: flex;
-  height: 28px;
-  border: 2px solid #000000;
-  background: var(--window-mid);
-  box-shadow: var(--border-sunken);
+  display: none;
 }
 
 .system-menu span {
@@ -248,7 +274,6 @@
 }
 
 .hero-copy,
-.hero-aside,
 .section-heading,
 .project-card,
 .intro-band > div {
@@ -259,13 +284,13 @@
 .hero-copy {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  min-height: 520px;
-  padding: 22px;
+  justify-content: center;
+  min-height: 428px;
+  padding: 30px;
   border: 3px solid #000000;
   background:
-    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.035) 0 2px, transparent 2px 8px),
-    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.035) 0 2px, transparent 2px 8px),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.025) 0 1px, transparent 1px 12px),
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.025) 0 1px, transparent 1px 12px),
     #e7e7e7;
   box-shadow: var(--border-sunken);
 }
@@ -275,7 +300,16 @@
   background: var(--window);
   box-shadow:
     var(--border-raised),
-    8px 8px 0 var(--title-blue);
+    5px 5px 0 var(--title-blue);
+}
+
+.profile-dialog::after {
+  content: '';
+  display: block;
+  height: 12px;
+  border-top: 3px solid #000000;
+  background:
+    linear-gradient(90deg, var(--accent-yellow) 0 25%, var(--accent-green) 25% 50%, var(--accent-blue) 50% 75%, var(--accent-pink) 75% 100%);
 }
 
 .dialog-titlebar {
@@ -296,12 +330,10 @@
 
 .profile-body {
   display: grid;
-  grid-template-columns: 116px minmax(0, 1fr);
-  gap: 18px;
-  padding: 18px;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 20px;
+  padding: 22px;
   background:
-    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.055) 0 2px, transparent 2px 12px),
-    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.055) 0 2px, transparent 2px 12px),
     #ffffff;
 }
 
@@ -361,23 +393,28 @@
   width: fit-content;
   max-width: 100%;
   margin-top: 8px;
-  font-size: 2.95rem;
+  font-size: 2.72rem;
   line-height: 1;
   letter-spacing: 0;
 }
 
 .profile-fields dl {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 6px;
   margin: 18px 0 0;
 }
 
 .profile-fields div {
   display: grid;
-  grid-template-columns: 84px minmax(0, 1fr);
+  grid-template-columns: 142px minmax(0, 1fr);
   border: 2px solid #000000;
   background: #ffffff;
   box-shadow: var(--border-sunken);
+}
+
+.profile-fields div:first-child {
+  grid-column: 1 / -1;
 }
 
 .profile-fields dt,
@@ -410,36 +447,25 @@
 .hero-text {
   position: relative;
   max-width: 64ch;
-  margin-top: 26px;
-  padding: 20px 22px;
+  margin-top: 20px;
+  padding: 16px 18px;
   border: 3px solid #000000;
   background: #ffffff;
-  box-shadow:
-    var(--border-sunken),
-    5px 5px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: var(--border-sunken);
   color: var(--ink);
   font-size: 1.02rem;
-  line-height: 1.72;
+  line-height: 1.58;
 }
 
 .hero-text::before {
-  content: '';
-  position: absolute;
-  top: -12px;
-  left: 28px;
-  width: 20px;
-  height: 20px;
-  border-top: 3px solid #000000;
-  border-left: 3px solid #000000;
-  background: #ffffff;
-  transform: rotate(45deg);
+  display: none;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 24px;
+  margin-top: 20px;
 }
 
 .primary-link,
@@ -486,13 +512,6 @@
   outline-offset: 4px;
 }
 
-.hero-aside {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  min-height: 520px;
-}
-
 .system-info-window {
   overflow: hidden;
   border: 3px solid #000000;
@@ -504,23 +523,18 @@
 
 .system-display {
   display: grid;
-  gap: 14px;
-  padding: 16px;
+  gap: 12px;
+  padding: 14px;
   background:
-    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.07) 0 2px, transparent 2px 14px),
-    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.07) 0 2px, transparent 2px 14px),
     #fdfcf4;
 }
 
 .display-preview {
   position: relative;
-  min-height: 230px;
+  min-height: 150px;
   overflow: hidden;
   border: 3px solid #000000;
   background:
-    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.08) 0 2px, transparent 2px 18px),
-    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.08) 0 2px, transparent 2px 18px),
-    repeating-linear-gradient(45deg, rgba(18, 60, 135, 0.1) 0 2px, transparent 2px 9px),
     #fdfcf4;
   box-shadow: var(--border-sunken);
 }
@@ -535,17 +549,7 @@
 }
 
 .display-preview::after {
-  content: 'DISPLAY 01';
-  position: absolute;
-  right: 24px;
-  bottom: 18px;
-  padding: 2px 7px;
-  border: 3px solid #000000;
-  background: var(--accent-yellow);
-  color: #000000;
-  font-family: var(--font-display);
-  font-size: 0.62rem;
-  font-weight: 700;
+  display: none;
 }
 
 .display-initials {
@@ -580,13 +584,13 @@
 .display-line-one {
   left: 16%;
   top: 28%;
-  width: 88px;
+  width: 58px;
 }
 
 .display-line-two {
   right: 12%;
   bottom: 24%;
-  width: 116px;
+  width: 72px;
   border-color: var(--accent-rose);
 }
 
@@ -616,7 +620,7 @@
 
 .system-display div {
   display: grid;
-  grid-template-columns: 86px minmax(0, 1fr);
+  grid-template-columns: 76px minmax(0, 1fr);
   border: 2px solid #000000;
   background: #ffffff;
   box-shadow: var(--border-sunken);
@@ -644,6 +648,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  align-content: flex-start;
 }
 
 .highlight-pill {
@@ -983,8 +988,7 @@
     width: 100%;
   }
 
-  .hero-copy,
-  .hero-aside {
+  .hero-copy {
     min-height: auto;
   }
 
@@ -1023,7 +1027,7 @@
   }
 
   .hero-panel {
-    padding: 82px 10px 46px;
+    padding: 58px 10px 34px;
   }
 
   .system-menu span {
@@ -1049,6 +1053,10 @@
   }
 
   .profile-body {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-fields dl {
     grid-template-columns: 1fr;
   }
 
