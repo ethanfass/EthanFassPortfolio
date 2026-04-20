@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import profilePhoto from './assets/ef-profile-photo.png'
+import nbaHoopScreenshot from './assets/nbahoop.png'
 
 const desktopShortcuts = [
   { href: '#about', icon: 'about', label: 'About' },
@@ -123,55 +124,66 @@ const educationItems = [
 
 const programs = [
   {
-    tag: 'Python Automation',
-    title: 'Log Compilation Tools',
+    tag: 'Fitness App',
+    title: 'Muscle Tracker',
     description:
-      'Designed internal Python programs during a cybersecurity internship to compile activity logs and generate behavioral metrics for investigations.',
-    stack: 'Python, log analysis, metrics',
-    status: 'Internal work',
-    demoUrl: '',
+      'Create custom workout plans by adding exercises from a list, then visualize exactly which muscle groups are targeted and how intensely each movement affects your body.',
+    stack: 'React, workout planning, muscle mapping',
+    status: 'Live app demo',
+    demoUrl: 'https://muscletrackerapp.netlify.app/',
     repoUrl: '',
   },
   {
-    tag: 'Security Analysis',
-    title: 'Custom Investigation Queries',
+    tag: 'Sports Analytics',
+    title: 'NBA Stat Comparison',
     description:
-      'Built and refined log queries to surface anomalous behavior patterns across large Teams, Zoom, Citrix, and endpoint data sets.',
-    stack: 'Splunk, SOAR, endpoint logs',
-    status: 'Case details private',
-    demoUrl: '',
+      'Interactive stat-comparison concept for checking NBA players side-by-side. This portfolio demo currently uses a static screenshot preview.',
+    stack: 'React, APIs, stat comparison UI',
+    status: 'Screenshot preview',
+    demoUrl: nbaHoopScreenshot,
     repoUrl: '',
   },
   {
-    tag: 'Course Support',
-    title: 'Java Lab Coaching',
+    tag: 'Security Utility',
+    title: 'Secure Password Generator',
     description:
-      'Supported students through Java assignments, debugging, object-oriented programming concepts, and algorithm design practice.',
-    stack: 'Java, OOP, algorithms',
-    status: 'Teaching experience',
-    demoUrl: '',
+      'Generates strong passwords with a built-in security checklist, multiple password strength levels, and password history tracking.',
+    stack: 'JavaScript, security checklist, password history',
+    status: 'Live app demo',
+    demoUrl: 'https://securepwgenerator.netlify.app/',
     repoUrl: '',
   },
 ]
 
 const games = [
   {
-    tag: 'Game Prototype',
-    title: 'Upcoming Arcade Project',
+    tag: 'Roguelike Shooter',
+    title: 'Rogube',
     description:
-      'A fast-paced game prototype can live here with mechanics, level design ideas, and any custom systems I built.',
-    stack: 'Unity or Godot',
-    status: 'Gameplay footage coming soon',
-    demoUrl: '',
+      'A simple roguelike inspired by The Binding of Isaac where you play as Cymon fighting computer bugs across 8 increasingly difficult waves, collecting items between rounds, and facing a final boss after wave 8.',
+    stack: 'Phaser, itch.io, browser game',
+    status: 'Live on itch.io',
+    demoUrl: 'https://ethfass74.itch.io/rogube',
+    windowVariant: 'large',
     repoUrl: '',
   },
   {
-    tag: 'Design Experiment',
-    title: 'Upcoming Puzzle Game',
+    tag: 'Arcade Matching Game',
+    title: 'Opposites Attract',
     description:
-      'A place for a puzzle or strategy game that highlights logic, iteration, and player-focused design choices.',
-    stack: 'C#, GDScript, UX iteration',
-    status: 'Playable build coming soon',
+      'A fast-paced matching game where you pair characters by opposite personalities and interests, build streaks before time runs out, and adapt as levels increase difficulty with more variety, smaller characters, and tighter spaces.',
+    stack: 'Godot, itch.io, browser game',
+    status: 'Live on itch.io',
+    demoUrl: 'https://ethfass74.itch.io/oa',
+    repoUrl: '',
+  },
+  {
+    tag: 'Educational Simulation',
+    title: 'Emails Please',
+    description:
+      'A Papers, Please-inspired educational game where you work for a cybersecurity firm reviewing phishing emails, identifying red flags, and making risk decisions under pressure.',
+    stack: 'Phaser, cybersecurity education, email analysis gameplay',
+    status: 'In progress - class project',
     demoUrl: '',
     repoUrl: '',
   },
@@ -185,26 +197,26 @@ const mainProjects = [
       'Created and maintained a fraternity website that publishes fundraising, rush, and academic event information for members and visitors.',
     stack: 'React, HTML, CSS',
     status: 'Live organization site',
-    demoUrl: '',
+    demoUrl: 'https://udspd.netlify.app/',
     repoUrl: '',
   },
   {
-    tag: 'Cybersecurity Workflow',
-    title: 'SOAR Incident Reports',
+    tag: 'Pokemon Team Builder',
+    title: 'PartyDex',
     description:
-      'Authored incident reports documenting suspicious activity, escalation actions, and remediation steps to strengthen response workflows.',
-    stack: 'SOAR, documentation, escalation',
-    status: 'Professional experience',
-    demoUrl: '',
+      'Build custom Pokemon teams by game generation using the PokeAPI, with detailed features for creating and refining teams across different games.',
+    stack: 'React, PokeAPI, custom team builder',
+    status: 'Live app demo',
+    demoUrl: 'https://partydex.netlify.app/',
     repoUrl: '',
   },
   {
-    tag: 'Personal Build',
-    title: 'Portfolio Site',
+    tag: 'Cybersecurity Automation',
+    title: 'AI Questionnaire Scoring Tool',
     description:
-      'A retro desktop-inspired portfolio built to organize resume-backed experience, projects, skills, and contact information.',
-    stack: 'React, Vite, CSS',
-    status: 'In progress',
+      'Built a system that uses Python and Google Gemini to generate a scoring rubric and evaluate cybersecurity questionnaires for companies that cannot afford formal ISO testing, then produces a comprehensive Excel report with scores and prioritized next-step improvements.',
+    stack: 'Python, Google Gemini, cybersecurity assessment, Excel reporting',
+    status: 'In progress - private project',
     demoUrl: '',
     repoUrl: '',
   },
@@ -243,7 +255,25 @@ function ProjectSection({ eyebrow, title, blurb, items, onOpenProject }) {
 
       <div className="card-grid">
         {items.map((item) => (
-          <article className="project-card" key={item.title}>
+          <article
+            className="project-card project-card-clickable"
+            key={item.title}
+            role="button"
+            tabIndex={0}
+            onClick={(event) => {
+              if (event.target.closest('button, a')) {
+                return
+              }
+
+              onOpenProject(item)
+            }}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault()
+                onOpenProject(item)
+              }
+            }}
+          >
             <span className="file-icon" aria-hidden="true" />
             <p className="card-tag">{item.tag}</p>
             <h3>{item.title}</h3>
@@ -254,7 +284,7 @@ function ProjectSection({ eyebrow, title, blurb, items, onOpenProject }) {
             </div>
             <div className="project-actions">
               <button type="button" onClick={() => onOpenProject(item)}>
-                Open window
+                {item.demoUrl ? 'Launch app' : 'Open window'}
               </button>
               {item.repoUrl ? (
                 <a href={item.repoUrl} target="_blank" rel="noreferrer">
@@ -274,10 +304,25 @@ function ProjectWindow({ project, onClose }) {
     return null
   }
 
+  const isImageDemo =
+    typeof project.demoUrl === 'string' &&
+    /\.(png|jpe?g|gif|webp|svg)(\?.*)?$/i.test(project.demoUrl)
+
+  let demoAddress = ''
+
+  if (project.demoUrl) {
+    try {
+      const parsedDemoUrl = new URL(project.demoUrl)
+      demoAddress = `${parsedDemoUrl.hostname}${parsedDemoUrl.pathname}`
+    } catch {
+      demoAddress = project.demoUrl
+    }
+  }
+
   return (
     <div className="project-modal-backdrop" role="presentation" onMouseDown={onClose}>
       <section
-        className="project-demo-window"
+        className={`project-demo-window${project.windowVariant === 'large' ? ' project-demo-window-large' : ''}`}
         role="dialog"
         aria-modal="true"
         aria-labelledby="project-window-title"
@@ -296,12 +341,41 @@ function ProjectWindow({ project, onClose }) {
         </div>
 
         {project.demoUrl ? (
-          <iframe
-            title={`${project.title} live demo`}
-            src={project.demoUrl}
-            className="project-demo-frame"
-            loading="lazy"
-          />
+          <div className="browser-shell">
+            <div className="browser-tab-row" aria-hidden="true">
+              <span className="browser-tab browser-tab-active">{project.title}</span>
+              <span className="browser-tab browser-tab-add">+</span>
+            </div>
+
+            <div className="browser-address-row">
+              <span className="browser-nav" aria-hidden="true">
+                <span />
+                <span />
+              </span>
+              <span className="browser-address">{demoAddress}</span>
+              <a href={project.demoUrl} target="_blank" rel="noreferrer">
+                Open in tab
+              </a>
+            </div>
+
+            <div className="project-demo-frame-wrap">
+              {isImageDemo ? (
+                <img
+                  src={project.demoUrl}
+                  alt={`${project.title} screenshot`}
+                  className="project-demo-image"
+                  loading="lazy"
+                />
+              ) : (
+                <iframe
+                  title={`${project.title} live demo`}
+                  src={project.demoUrl}
+                  className="project-demo-frame"
+                  loading="lazy"
+                />
+              )}
+            </div>
+          </div>
         ) : (
           <div className="project-window-empty">
             <p className="card-tag">Demo URL needed</p>
@@ -353,6 +427,36 @@ function InfoWindow({ id, title, items, compact = false }) {
 
 function App() {
   const [activeProject, setActiveProject] = useState(null)
+
+  useEffect(() => {
+    if (!activeProject) {
+      return
+    }
+
+    document.body.classList.add('project-modal-open')
+
+    return () => {
+      document.body.classList.remove('project-modal-open')
+    }
+  }, [activeProject])
+
+  useEffect(() => {
+    if (!activeProject) {
+      return
+    }
+
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        setActiveProject(null)
+      }
+    }
+
+    window.addEventListener('keydown', handleEscape)
+
+    return () => {
+      window.removeEventListener('keydown', handleEscape)
+    }
+  }, [activeProject])
 
   return (
     <main className="page-shell">
@@ -495,8 +599,8 @@ function App() {
         <div id="main-projects">
           <ProjectSection
             eyebrow="Main Projects"
-            title="The projects I want people to remember"
-            blurb="My strongest work belongs here, especially projects with clear impact, deeper architecture, or a story worth walking through."
+            title="Featured Projects"
+            blurb="These are some of the main projects I&apos;ve built recently. They reflect the kinds of tools and websites I enjoy making, from passion-fueled projects to more detailed technical applications."
             items={mainProjects}
             onOpenProject={setActiveProject}
           />
@@ -505,8 +609,8 @@ function App() {
         <div id="games">
           <ProjectSection
             eyebrow="Games"
-            title="Interactive builds and gameplay experiments"
-            blurb="Prototypes, class projects, and game ideas that highlight creativity, systems thinking, and iteration."
+            title="Games"
+            blurb="This section includes games I&apos;ve made both for school and in my own time. I enjoy building games because it gives me a chance to be creative, solve problems, and turn ideas into something people can actually play."
             items={games}
             onOpenProject={setActiveProject}
           />
@@ -515,8 +619,8 @@ function App() {
         <div id="programs">
           <ProjectSection
             eyebrow="Programs"
-            title="Code that solves practical problems"
-            blurb="Applications, tools, utilities, and technical experiments that show how I think through problems and build toward working software."
+            title="Programs I&apos;ve Made"
+            blurb="This section includes some of the simpler programs I built early on, with projects focused on things like fitness, NBA stats, and password generation. They show the kinds of problems I was interested in solving and how I started turning ideas into working software."
             items={programs}
             onOpenProject={setActiveProject}
           />
