@@ -564,7 +564,7 @@ function App() {
                 <dl>
                   <div>
                     <dt>Status</dt>
-                    <dd>Senior Computer Science Student</dd>
+                    <dd>Senior Computer Science Major (B.S.)</dd>
                   </div>
                   <div>
                     <dt>Degree</dt>
