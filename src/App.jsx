@@ -566,9 +566,10 @@ function App() {
         <div>
           <p className="band-label">Focus Areas</p>
           <p>
-            Log investigation, Python automation, incident reporting, Java and
-            OOP support, React websites, SQL, and security tools like Splunk,
-            Burp Suite, SOAR, and Metasploit.
+            I focus on log investigations, Python automation, incident
+            reporting, and Java/OOP support. I also build React websites, work
+            with SQL, and regularly use security tools like Splunk, Burp Suite,
+            SOAR, and Metasploit.
           </p>
         </div>
         <div>
