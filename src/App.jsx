@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import profilePhoto from './assets/ef-profile-photo.png'
 
 const desktopShortcuts = [
   { href: '#about', icon: 'about', label: 'About' },
@@ -39,6 +40,20 @@ const experienceItems = [
     meta: 'Lowe\'s Home Improvement | Warrington, PA | Jun 2023 - Feb 2024',
     detail:
       'Guided customers through product selections, managed transactions, restocked merchandise, and kept the sales floor organized during high-volume hours.',
+  },
+  {
+    label: 'Customer Service',
+    title: 'Customer Service Associate & Helping Hands Member',
+    meta: 'Wegmans Food Markets | Warrington, PA | Aug 2021 - May 2023',
+    detail:
+      'Processed register transactions, organized and pulled shopping carts, cleaned the parking lot, and helped customers transfer groceries to their cars.',
+  },
+  {
+    label: 'Food Service',
+    title: 'Customer Service Associate',
+    meta: 'Wawa, Inc. | Warrington, PA | Aug 2020 - Aug 2021',
+    detail:
+      'Worked as a cashier and behind the counter preparing food, handling transactions, and providing excellent customer service.',
   },
 ]
 
@@ -205,11 +220,6 @@ const contactItems = [
     label: 'LinkedIn',
     title: 'linkedin.com/in/ethanfassnacht',
     detail: 'Professional profile listed on the resume.',
-  },
-  {
-    label: 'Phone',
-    title: '(215) 347-9604',
-    detail: 'Direct phone contact from the resume.',
   },
 ]
 
@@ -388,9 +398,11 @@ function App() {
             </div>
 
             <div className="profile-body">
-              <div className="portrait-icon" aria-hidden="true">
-                EF
-              </div>
+              <img
+                className="portrait-icon"
+                src={profilePhoto}
+                alt="Ethan Fassnacht"
+              />
               <div className="profile-fields">
                 <p className="eyebrow">Portfolio room / Ethan Fassnacht</p>
                 <h1>Ethan Fassnacht</h1>
@@ -464,6 +476,12 @@ function App() {
         </div>
       </section>
 
+      <InfoWindow
+        id="education"
+        title="education-extracurriculars.grp"
+        items={educationItems}
+      />
+
       <InfoWindow id="experience" title="experience.exe" items={experienceItems} />
 
       <InfoWindow
@@ -473,21 +491,13 @@ function App() {
         items={[...skillItems, ...certificateItems, ...classItems]}
       />
 
-      <InfoWindow
-        id="education"
-        title="education-extracurriculars.grp"
-        items={educationItems}
-      />
-
-      <InfoWindow compact id="contact" title="contact.ini" items={contactItems} />
-
       <div className="content-stack">
-        <div id="programs">
+        <div id="main-projects">
           <ProjectSection
-            eyebrow="Programs"
-            title="Code that solves practical problems"
-            blurb="Applications, tools, utilities, and technical experiments that show how I think through problems and build toward working software."
-            items={programs}
+            eyebrow="Main Projects"
+            title="The projects I want people to remember"
+            blurb="My strongest work belongs here, especially projects with clear impact, deeper architecture, or a story worth walking through."
+            items={mainProjects}
             onOpenProject={setActiveProject}
           />
         </div>
@@ -502,16 +512,18 @@ function App() {
           />
         </div>
 
-        <div id="main-projects">
+        <div id="programs">
           <ProjectSection
-            eyebrow="Main Projects"
-            title="The projects I want people to remember"
-            blurb="My strongest work belongs here, especially projects with clear impact, deeper architecture, or a story worth walking through."
-            items={mainProjects}
+            eyebrow="Programs"
+            title="Code that solves practical problems"
+            blurb="Applications, tools, utilities, and technical experiments that show how I think through problems and build toward working software."
+            items={programs}
             onOpenProject={setActiveProject}
           />
         </div>
       </div>
+
+      <InfoWindow compact id="contact" title="contact.ini" items={contactItems} />
 
       <ProjectWindow
         project={activeProject}
