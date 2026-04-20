@@ -481,6 +481,11 @@
     box-shadow 120ms steps(2, end);
 }
 
+.hero-action-button {
+  cursor: pointer;
+  font-size: inherit;
+}
+
 .primary-link {
   color: #ffffff;
   background:
@@ -493,6 +498,12 @@
   background:
     repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.34) 0 3px, transparent 3px 7px),
     var(--accent-yellow);
+}
+
+.mint-link {
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.34) 0 3px, transparent 3px 7px),
+    var(--accent-green);
 }
 
 .primary-link:hover,
@@ -805,6 +816,10 @@
   margin: 0;
   color: var(--ink-soft);
   line-height: 1.6;
+}
+
+.resume-actions {
+  margin-top: 12px;
 }
 
 .section-block {
@@ -1288,6 +1303,88 @@ body.project-modal-open {
   color: #000000;
   font-family: var(--font-display);
   font-weight: 700;
+}
+
+.resume-preview-shell {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 6px);
+  height: calc(100% - 96px);
+  margin: 3px;
+  border: 3px solid #000000;
+  background: #d7d7d7;
+  box-shadow: var(--border-sunken);
+  overflow: hidden;
+}
+
+.resume-preview-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 8px;
+  border-bottom: 3px solid #000000;
+  background: var(--window);
+}
+
+.resume-preview-header span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 8px;
+  border: 2px solid #000000;
+  background: #ffffff;
+  box-shadow: var(--border-sunken);
+  color: #000000;
+  font-family: var(--font-display);
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.resume-preview-open-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 10px;
+  border: 2px solid #000000;
+  background: var(--accent-green);
+  box-shadow: var(--border-raised);
+  color: #000000;
+  font-family: var(--font-display);
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.resume-preview-open-link:hover {
+  box-shadow: var(--border-sunken);
+}
+
+.resume-preview-open-link:focus-visible {
+  outline: 3px dotted #000000;
+  outline-offset: 2px;
+}
+
+.resume-preview-canvas {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 4px;
+  background:
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.04) 0 1px, transparent 1px 22px),
+    #c5c5c5;
+}
+
+.resume-pdf-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  margin: 0;
+  border: 3px solid #000000;
+  background: #ffffff;
+  box-shadow: var(--border-sunken);
 }
 
 @media (max-width: 980px) {

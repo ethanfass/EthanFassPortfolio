@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import profilePhoto from './assets/ef-profile-photo.png'
 import nbaHoopScreenshot from './assets/nbahoop.png'
+import resumePdf from './assets/Ethan Fassnacht Resume Spring26.pdf.pdf'
 
 const desktopShortcuts = [
   { href: '#about', icon: 'about', label: 'About' },
@@ -120,6 +121,14 @@ const educationItems = [
     detail:
       'Organized intramural sports for 60+ members and created and maintained a React website for fundraising, rush, and academic events.',
   },
+  {
+    label: 'Resume',
+    title: 'See complete resume',
+    meta: 'Spring 2026 | .pdf',
+    detail: 'Open the full resume in a themed window.',
+    actionType: 'openResume',
+    actionLabel: 'Open resume',
+  },
 ]
 
 const programs = [
@@ -235,6 +244,17 @@ const contactItems = [
   },
 ]
 
+const resumeProject = {
+  tag: 'Resume File',
+  title: 'Ethan Fassnacht Resume Spring26',
+  description: 'Full resume preview rendered inside this window.',
+  stack: 'PDF document (.pdf)',
+  status: 'Spring 2026',
+  demoUrl: resumePdf,
+  previewType: 'pdf',
+  repoUrl: '',
+}
+
 function ProjectSection({ eyebrow, title, blurb, items, onOpenProject }) {
   return (
     <section className="section-block">
@@ -304,6 +324,8 @@ function ProjectWindow({ project, onClose }) {
     return null
   }
 
+  const isResumePreview = project.previewType === 'pdf'
+
   const isImageDemo =
     typeof project.demoUrl === 'string' &&
     /\.(png|jpe?g|gif|webp|svg)(\?.*)?$/i.test(project.demoUrl)
@@ -340,7 +362,25 @@ function ProjectWindow({ project, onClose }) {
           <span>{project.status}</span>
         </div>
 
-        {project.demoUrl ? (
+        {isResumePreview ? (
+          <div className="resume-preview-shell">
+            <div className="resume-preview-header">
+              <span>Document preview</span>
+              <a href={project.demoUrl} target="_blank" rel="noreferrer" className="resume-preview-open-link">
+                Open in new tab
+              </a>
+            </div>
+
+            <div className="resume-preview-canvas">
+              <iframe
+                title="Resume preview"
+                src={`${project.demoUrl}#view=FitH`}
+                className="resume-pdf-frame"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        ) : project.demoUrl ? (
           <div className="browser-shell">
             <div className="browser-tab-row" aria-hidden="true">
               <span className="browser-tab browser-tab-active">{project.title}</span>
@@ -398,7 +438,7 @@ function ProjectWindow({ project, onClose }) {
   )
 }
 
-function InfoWindow({ id, title, items, compact = false }) {
+function InfoWindow({ id, title, items, compact = false, onOpenResume }) {
   return (
     <section className={`info-window${compact ? ' info-window-compact' : ''}`} id={id}>
       <div className="section-titlebar">
@@ -418,6 +458,13 @@ function InfoWindow({ id, title, items, compact = false }) {
             <h3>{item.title}</h3>
             {item.meta ? <p className="resume-meta">{item.meta}</p> : null}
             <p>{item.detail}</p>
+            {item.actionType === 'openResume' && onOpenResume ? (
+              <div className="project-actions resume-actions">
+                <button type="button" onClick={onOpenResume}>
+                  {item.actionLabel ?? 'Open'}
+                </button>
+              </div>
+            ) : null}
           </article>
         ))}
       </div>
@@ -427,6 +474,10 @@ function InfoWindow({ id, title, items, compact = false }) {
 
 function App() {
   const [activeProject, setActiveProject] = useState(null)
+
+  const openResumeWindow = () => {
+    setActiveProject(resumeProject)
+  }
 
   useEffect(() => {
     if (!activeProject) {
@@ -554,7 +605,14 @@ function App() {
             <a href="#main-projects" className="primary-link">
               View featured work
             </a>
-            <a href="#experience" className="secondary-link">
+            <button
+              type="button"
+              className="secondary-link hero-action-button"
+              onClick={openResumeWindow}
+            >
+              View resume
+            </button>
+            <a href="#experience" className="secondary-link mint-link">
               View experience
             </a>
           </div>
@@ -585,6 +643,7 @@ function App() {
         id="education"
         title="education-extracurriculars.grp"
         items={educationItems}
+        onOpenResume={openResumeWindow}
       />
 
       <InfoWindow id="experience" title="experience.exe" items={experienceItems} />

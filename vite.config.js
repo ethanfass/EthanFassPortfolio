@@ -7,6 +7,7 @@ import { join } from 'node:path'
 // https://vite.dev/config/
 export default defineConfig({
   cacheDir: join(tmpdir(), 'portfolio-website-vite-cache'),
+  assetsInclude: ['**/*.pdf'],
   plugins: [
     react(),
     babel({ presets: [reactCompilerPreset()] })
