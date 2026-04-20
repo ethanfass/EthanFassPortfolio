@@ -596,9 +596,9 @@ function App() {
           </div>
 
           <p className="hero-text">
-            I&apos;m a University of Delaware Computer Science senior building a
-            portfolio around security work, teaching experience, and practical
-            software projects.
+            Senior Computer Science major at the University of Delaware focused
+            on cybersecurity, with a strong interest in penetration testing,
+            security engineering, and data analysis.
           </p>
 
           <div className="hero-actions">
