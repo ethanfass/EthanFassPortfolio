@@ -351,7 +351,7 @@ function ProjectWindow({ project, onClose }) {
         onMouseDown={(event) => event.stopPropagation()}
       >
         <div className="project-window-titlebar">
-          <span id="project-window-title">{project.title}.exe</span>
+          <span id="project-window-title">{project.title}</span>
           <button type="button" onClick={onClose} aria-label="Close project window">
             x
           </button>
@@ -531,7 +531,7 @@ function App() {
       <section className="hero-panel" id="about">
         <div className="window-titlebar">
           <span className="titlebar-icon" aria-hidden="true" />
-          <span>ETHAN.EXE</span>
+          <span>PORTFOLIO.OS</span>
           <div className="window-controls" aria-hidden="true">
             <span />
             <span />
@@ -549,7 +549,7 @@ function App() {
         <div className="hero-copy">
           <div className="profile-dialog">
             <div className="dialog-titlebar">
-              <span>ABOUTETHAN.DAT</span>
+              <span>ABOUT.DAT</span>
             </div>
 
             <div className="profile-body">
@@ -646,7 +646,7 @@ function App() {
         onOpenResume={openResumeWindow}
       />
 
-      <InfoWindow id="experience" title="experience.exe" items={experienceItems} />
+      <InfoWindow id="experience" title="experience.log" items={experienceItems} />
 
       <InfoWindow
         compact
