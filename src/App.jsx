@@ -170,7 +170,7 @@ const games = [
     title: 'Rogube',
     description:
       'A simple roguelike inspired by The Binding of Isaac where you play as Cymon fighting computer bugs across 8 increasingly difficult waves, collecting items between rounds, and facing a final boss after wave 8.',
-    stack: 'Phaser, itch.io, browser game',
+    stack: 'Phaser - roguelike shooter',
     status: 'Live on itch.io',
     demoUrl: 'https://ethfass74.itch.io/rogube',
     windowVariant: 'large',
@@ -181,7 +181,7 @@ const games = [
     title: 'Opposites Attract',
     description:
       'A fast-paced matching game where you pair characters by opposite personalities and interests, build streaks before time runs out, and adapt as levels increase difficulty with more variety, smaller characters, and tighter spaces.',
-    stack: 'Godot, itch.io, browser game',
+    stack: 'Godot - puzzle/pattern recognition',
     status: 'Live on itch.io',
     demoUrl: 'https://ethfass74.itch.io/oa',
     repoUrl: '',
@@ -191,9 +191,9 @@ const games = [
     title: 'Emails Please',
     description:
       'A Papers, Please-inspired educational game where you work for a cybersecurity firm reviewing phishing emails, identifying red flags, and making risk decisions under pressure.',
-    stack: 'Phaser, cybersecurity education, email analysis gameplay',
-    status: 'In progress - class project',
-    demoUrl: '',
+    stack: 'Phaser - cybersecurity education',
+    status: 'Live on itch.io, in development.',
+    demoUrl: 'https://ethfass74.itch.io/emailsplease',
     repoUrl: '',
   },
 ]
