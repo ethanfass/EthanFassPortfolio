@@ -15,10 +15,25 @@
   width: 88px;
 }
 
+.desktop-icons {
+  position: fixed;
+  top: 32px;
+  left: max(16px, calc((100vw - 1420px) / 2));
+  z-index: 4;
+  display: grid;
+  gap: 18px;
+  width: 88px;
+}
+
 .desktop-icons a {
   display: grid;
   justify-items: center;
+  align-content: center;
   gap: 6px;
+  width: 78px;
+  min-height: 70px;
+  padding: 4px;
+  border: 1px dotted transparent;
   color: #ffffff;
   font-family: var(--font-display);
   font-size: 0.72rem;
@@ -26,6 +41,15 @@
   text-align: center;
   text-decoration: none;
   text-shadow: 2px 2px 0 #000000;
+}
+
+.desktop-icons a:hover,
+.desktop-icons a:focus-visible {
+  color: #ffffff;
+  background: #000080;
+  border-color: #ffffff;
+  outline: none;
+  text-shadow: none;
 }
 
 .desktop-icon {
