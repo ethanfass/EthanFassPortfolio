@@ -134,8 +134,8 @@ const educationItems = [
 
 const programs = [
   {
-    tag: 'Pokemon Team Builder',
-    title: 'PokeTeamPro',
+    tag: 'Pokémon Team Builder',
+    title: 'PokéTeamPro',
     description:
       'Build custom Pokemon teams by game generation using the PokeAPI, with detailed features for creating and refining teams across different games.',
     stack: 'React, PokeAPI, custom team builder',
