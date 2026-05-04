@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import profilePhoto from './assets/ef-profile-photo.png'
 import nbaHoopScreenshot from './assets/nbahoop.png'
+import seniorDesignProjectScreenshot from './assets/seniordesignproject.JPG'
 import resumePdf from './assets/Ethan Fassnacht Resume Spring26.pdf.pdf'
 
 const desktopShortcuts = [
@@ -10,6 +11,7 @@ const desktopShortcuts = [
   { href: '#experience', icon: 'briefcase', label: 'Experience' },
   { href: '#skills', icon: 'tools', label: 'Skills' },
   { href: '#main-projects', icon: 'folder', label: 'Projects' },
+  { href: '#passion-projects', icon: 'folder-green', label: 'Passion' },
   { href: '#games', icon: 'window', label: 'Games' },
   { href: '#programs', icon: 'chip', label: 'Programs' },
 ]
@@ -210,23 +212,56 @@ const mainProjects = [
     repoUrl: '',
   },
   {
-    tag: 'Pokemon Team Builder',
-    title: 'PartyDex',
-    description:
-      'Build custom Pokemon teams by game generation using the PokeAPI, with detailed features for creating and refining teams across different games.',
-    stack: 'React, PokeAPI, custom team builder',
-    status: 'Live app demo',
-    demoUrl: 'https://partydex.netlify.app/',
-    repoUrl: '',
-  },
-  {
     tag: 'Cybersecurity Automation',
     title: 'AI Questionnaire Scoring Tool',
     description:
       'Built a system that uses Python and Google Gemini to generate a scoring rubric and evaluate cybersecurity questionnaires for companies that cannot afford formal ISO testing, then produces a comprehensive Excel report with scores and prioritized next-step improvements.',
     stack: 'Python, Google Gemini, cybersecurity assessment, Excel reporting',
     status: 'In progress - private project',
-    demoUrl: '',
+    demoUrl: seniorDesignProjectScreenshot,
+    repoUrl: '',
+  },
+  {
+    tag: 'Cybersecurity Tool',
+    title: 'VirusTotal URL Checker',
+    description:
+      'Built a React tool that checks URLs through the VirusTotal API, helping users quickly review links for potential security risks before opening them.',
+    stack: 'React, VirusTotal API, URL security scanning',
+    status: 'Live app demo',
+    demoUrl: 'https://vturlchecker.netlify.app/',
+    repoUrl: '',
+  },
+]
+
+const passionProjects = [
+  {
+    tag: 'Pokemon Team Builder',
+    title: 'PokeTeamPro',
+    description:
+      'Build custom Pokemon teams by game generation using the PokeAPI, with detailed features for creating and refining teams across different games.',
+    stack: 'React, PokeAPI, custom team builder',
+    status: 'Live app demo',
+    demoUrl: 'https://poketeampro.netlify.app/',
+    repoUrl: '',
+  },
+  {
+    tag: 'Game Recommendation App',
+    title: 'go_next',
+    description:
+      'Built a React app that uses the RAWG API to recommend games and help users discover what to play next based on game data.',
+    stack: 'React, RAWG API, game discovery',
+    status: 'Live app demo',
+    demoUrl: 'https://gonextgame.netlify.app/',
+    repoUrl: '',
+  },
+  {
+    tag: 'NBA Stats Terminal',
+    title: 'NBA Matchup Terminal',
+    description:
+      'Built a React terminal-style app that compares two NBA players using the NBA API, including season, all-time, and playoff stats.',
+    stack: 'React, NBA API, player matchup, terminal UI',
+    status: 'Live app demo',
+    demoUrl: 'https://nbamatchupterminal.netlify.app/',
     repoUrl: '',
   },
 ]
@@ -662,6 +697,16 @@ function App() {
             title="Featured Projects"
             blurb="These are some of the main projects I&apos;ve built recently. They reflect the kinds of tools and websites I enjoy making, from passion-fueled projects to more detailed technical applications."
             items={mainProjects}
+            onOpenProject={setActiveProject}
+          />
+        </div>
+
+        <div id="passion-projects">
+          <ProjectSection
+            eyebrow="Passion Projects"
+            title="Passion Projects"
+            blurb="These are the projects I build from personal curiosity and excitement. They lean into ideas I want to explore for fun, while still giving me room to sharpen my technical skills."
+            items={passionProjects}
             onOpenProject={setActiveProject}
           />
         </div>
